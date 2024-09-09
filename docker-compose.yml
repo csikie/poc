@@ -1,0 +1,6 @@
+﻿services:
+  poc:
+    image: poc
+    build:
+      context: .
+      dockerfile: poc/Dockerfile

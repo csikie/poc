@@ -1,0 +1,24 @@
+@poc_HostAddress = http://localhost:5043/api
+@poc_SupabaseLogin = http://127.0.0.1:54321/auth/v1/token?grant_type=password
+@poc_AccessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzI0NDE3OTg0LCJpYXQiOjE3MjQ0MTQzODQsImlzcyI6Imh0dHA6Ly8xMjcuMC4wLjE6NTQzMjEvYXV0aC92MSIsInN1YiI6ImFmOTUwZjYwLWIzMmYtNDhmMC1hMjMzLWRlYmU1ZGNjM2UzNiIsImVtYWlsIjoiYWRtaW5AbG9jYWxob3N0LmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsicGVybWlzc2lvbiI6IlBlcm1pc3Npb24yNTUiLCJyb2xlIjotMX0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoicGFzc3dvcmQiLCJ0aW1lc3RhbXAiOjE3MjQ0MTQzODR9XSwic2Vzc2lvbl9pZCI6ImY4Y2E5YjFjLTdlOTgtNDA0MC05MDE2LWIzNTg3YzZhZDBjMCIsImlzX2Fub255bW91cyI6ZmFsc2V9.Qq-PsccQPEcK-tfB-eaQujptkKsEi5QuTatcDYNB-0o
+
+GET {{poc_HostAddress}}/weatherforecast/
+Accept: application/json
+Authorization: Bearer {{poc_AccessToken}}
+###
+
+POST {{poc_SupabaseLogin}}
+Content-Type: application/json
+
+{
+  "Email": "admin@localhost.com",
+  "Password": "admin123"
+}
+
+###
+
+GET {{poc_HostAddress}}/roles
+Accept: application/json
+Authorization: Bearer {{poc_AccessToken}}
+
+###
